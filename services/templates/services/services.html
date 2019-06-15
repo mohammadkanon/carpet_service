@@ -1,0 +1,140 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<section id="wallpaper-top-section" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+      <div class="slider" id="div-full-width">
+          <ul class="slides" id="ul-full-width">
+              {% for object in slider %}
+            <li>
+              <img src="{{ object.slider_img.url }}"> <!-- random image -->
+              <div class="caption center-align">
+                <p id="slider-top-text">{{ object.slider_caption }}</p>
+                <p id="slider-top-midel">
+                    {{ object.slider_description }}
+                <br>
+                    {{ object.slider_description2 }}
+                </p>
+                <p id="slider-top-button">{{ object.slider_button }}</p>
+              </div>
+            </li>
+              {% endfor %}
+          </ul>
+      </div>
+    </section><!--             slider section            -->
+
+    <section id="second-wall" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+      <img src="{% static 'img/wall-2.png' %}">
+    </section><!--             second wall section            -->
+
+    <section id="services-section">
+      <div class="container" id="services-width">
+         <div class="row">
+           <div id="services-text">
+               <p id="services-title" class="wow fadeIn img-responsive" data-wow-duration="1.1s" data-wow-delay=".5s"></p>
+               <p id="services-des" class="wow fadeIn img-responsive" data-wow-duration="1.1s" data-wow-delay=".5s">Give Your Carpet A Deep Clean</p>
+           </div>
+            <div class="col-sm-12">
+                {% for object in work %}
+               <div class="col-sm-4" id="work-img-box" >
+                  <img src="{{ object.work_img.url }}" id="work-img" class="img-responsive wow fadeIn img-responsive" data-wow-duration="1.1s" data-wow-delay=".5s">
+                  <div id="work-img-text">
+                      <p class="wow fadeIn img-responsive" data-wow-duration="1.1s" data-wow-delay=".5s">{{ object.work_title }}</p>
+                  </div>
+               </div>
+                {% endfor %}
+            </div>
+         </div>
+         <div id="work-button-box">
+                <p id="work-button-text" class="wow fadeIn img-responsive" data-wow-duration="1.1s" data-wow-delay=".5s">View More services</p>
+         </div>
+      </div>
+    </section><!--             Services section            -->
+
+    <section id="video-section">
+      <div class="container" id="services-width">
+        <div class="row">
+          <div class="col-sm-12">
+             <div class="col-sm-6" id="video-text-box">
+                  <p id="services-des" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">Video</p>
+                  <i class="fas fa-play-circle wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s"></i>
+                  <img src="{% static 'img/video.jpg' %}" id="video-img" class="wow fadeIn" data-wow-duration="1.5s" data-wow-delay=".5s">
+             </div>
+             <div class="col-sm-6">
+                  <p id="services-des" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">Cleaning FAQ</p>
+                  <div id="video-text-row" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+                    <span><i class="far fa-window-minimize"></i><a id="video-text-row-text">What method do you use ?</a></span>
+                  </div>
+                  <div id="video-text-row" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+                    <span><i class="far fa-window-minimize"></i><a id="video-text-row-text">What do you consider ?</a></span>
+                  </div>
+                  <div id="video-text-row" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+                    <span><i class="far fa-window-minimize"></i><a id="video-text-row-text">What use for cleaning?</a></span>
+                  </div>
+                  <div id="video-text-row" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+                    <span><i class="far fa-window-minimize"></i><a id="video-text-row-text">What make it cleaning?</a></span>
+                  </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section><!--             video section            -->
+
+    <section id="peopleSay-section" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+      <div class="container" id="services-width">
+        <div class="row">
+           <div class="col-sm-8">
+              <div class="textSlider" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+                  {% for object in say %}
+                  <p class="slidesParttext">{{ object.people_say }}</p>
+                  {% endfor %}
+              </div>
+              <div id="peopleSay-button-box" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+                  <p id="peopleSay-button">See More Testimonials</p>
+              </div>
+           </div>
+        </div>
+      </div>
+    </section><!--             peoplesay section            -->
+
+    <section id="price-section" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+      <div class="container" id="price-container-width">
+        <div class="row">
+          <div id="services-text">
+               <p id="price-title-list" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s"></p>
+               <p id="services-des" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">Service Plans</p>
+           </div>
+           <div class="col-sm-12">
+               {% for object in price %}
+               {% if not forloop.counter|divisibleby:2 %}
+              <div class="col-sm-4 wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s" id="price-box">
+                <div id="price-box-top">
+                 <span id="price-number">$2.00</span><span id="price-text">/m</span>
+                 <p id="price-title">Residential</p>
+                </div>
+                <div id="price-box-bottom">
+                   <p id="price-bottom-des">Cleaning of all carpet types with the use of chemicals.</p>
+                   <p id="price-bottom-button">Order Now</p>
+                </div>
+              </div>
+               {% endif %}
+               {% if forloop.counter|divisibleby:2 %}
+              <div class="col-sm-4 wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s" id="price-box-midel">
+                <div id="price-box-top-midel">
+                 <span id="price-number-midel">$2.00</span><span id="price-text">/m</span>
+                 <p id="price-title">Residential</p>
+                </div>
+                <div id="price-box-bottom">
+                   <p id="price-bottom-des">Cleaning of all carpet types with the use of chemicals.</p>
+                   <p id="price-bottom-button">Order Now</p>
+                </div>
+              </div>
+               {% endif %}
+               {% endfor %}
+           </div>
+        </div>
+      </div>
+    </section><!--             price section            -->
+
+
+{% endblock %}

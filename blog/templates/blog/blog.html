@@ -1,0 +1,113 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<section id="wallpaper-top-section" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+      <div class="slider" id="div-full-width">
+          <ul class="slides" id="ul-full-width">
+              {% for object in slider %}
+            <li>
+              <img src="{{ object.slider_img.url }}"> <!-- random image -->
+              <div class="caption center-align">
+                <p id="slider-top-text">{{ object.slider_caption }}</p>
+                <p id="slider-top-midel">
+                    {{ object.slider_description }}
+                <br>
+                    {{ object.slider_description2 }}
+                </p>
+                <p id="slider-top-button">{{ object.slider_button }}</p>
+              </div>
+            </li>
+              {% endfor %}
+          </ul>
+      </div>
+    </section><!--             slider section            -->
+
+    <section id="second-wall" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+      <img src="{% static 'img/wall-2.png' %}">
+    </section><!--             second wall section            -->
+
+    <section id="blog-page-section">
+      <div class="container-fluid">
+        <div class="row">
+            {% for object in blog %}
+            {% if not forloop.counter|divisibleby:2 %}
+          <div class="col-sm-12 wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s" id="blog-row-box">
+             <div id="blog-post">
+                 <div class="col-sm-5" id="blog-half-part">
+                    <div id="blog-text-part">
+                        <p id="blog-text-title">{{ object.blog_title }}</p>
+                        <span id="icons-box"><i class="fas fa-calendar-alt blog-post"></i><a id="blog-date">{{ object.date }}</a></span><span><i class="far fa-comment blog-post"></i><a id="blog-comment">{{ object.blog_comment }} comments</a></span>
+                        <p id="blog-des">{{ object.blog_description }}</p>
+                        <p id="read-more-button">{{ object.blog_button }}</p>
+                    </div>
+                 </div>
+                 <div class="col-sm-1">
+                 </div>
+                 <div class="col-sm-6" id="blog-half-part">
+                    <img src="{{ object.blog_img.url }}" id="blog-main-img">
+                 </div>
+             </div>
+          </div><!-- left -->
+            {% endif %}
+            {% if forloop.counter|divisibleby:2 %}
+          <div class="col-sm-12 wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s" id="blog-row-box">
+             <div id="blog-post">
+                <div class="col-sm-6" id="blog-half-part">
+                    <img src="{{ object.blog_img.url }}" id="blog-main-img">
+                 </div>
+                 <div class="col-sm-1">
+                 </div>
+                 <div class="col-sm-5" id="blog-half-part">
+                    <div id="blog-text-part">
+                        <p id="blog-text-title">{{ object.blog_title }}</p>
+                        <span id="icons-box"><i class="fas fa-calendar-alt blog-post"></i><a id="blog-date">{{ object.date }}</a></span><span><i class="far fa-comment blog-post"></i><a id="blog-comment">{{ object.blog_comment }} comments</a></span>
+                        <p id="blog-des">{{ object.blog_description }}</p>
+                        <p id="read-more-button">{{ object.blog_button }}</p>
+                    </div>
+                 </div>
+             </div>
+          </div><!-- right -->
+            {% endif %}
+          <!--<div class="col-sm-12 wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s" id="blog-row-box">-->
+             <!--<div id="blog-post">-->
+                 <!--<div class="col-sm-5" id="blog-half-part">-->
+                    <!--<div id="blog-text-part">-->
+                        <!--<p id="blog-text-title">The Benefits of a Pre-Christmas Clean</p>-->
+                        <!--<span id="icons-box"><i class="fas fa-calendar-alt blog-post"></i><a id="blog-date">6 February 2017</a></span><span><i class="far fa-comment blog-post"></i><a id="blog-comment">6 Comments</a></span>-->
+                        <!--<p id="blog-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat, arcu sed ornare facilisis, enim ipsum varius libero, eget fermentum nisl dolor ac erat. Mauris suscipit massa lacus, ut euismod tellus tincidunt at. Nunc lacus metus, ultrices eget ipsum eget, egestas aliquet nisi. Proin iaculis nunc non ligula facilisis ultricies. Nam eu venenatis nibh. Proin finibus a dui sed facilisis.…</p>-->
+                        <!--<p id="read-more-button">Read More</p>-->
+                    <!--</div>-->
+                 <!--</div>-->
+                 <!--<div class="col-sm-1">-->
+                 <!--</div>-->
+                 <!--<div class="col-sm-6" id="blog-half-part">-->
+                    <!--<img src="img/blog-img3.jpg" id="blog-main-img">-->
+                 <!--</div>-->
+             <!--</div>-->
+          <!--</div>&lt;!&ndash; left &ndash;&gt;-->
+          <!--<div class="col-sm-12 wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s" id="blog-row-box">-->
+             <!--<div id="blog-post">-->
+                <!--<div class="col-sm-6" id="blog-half-part">-->
+                    <!--<img src="img/blog-img4.jpg" id="blog-main-img">-->
+                 <!--</div>-->
+                 <!--<div class="col-sm-1">-->
+                 <!--</div>-->
+                 <!--<div class="col-sm-5" id="blog-half-part">-->
+                    <!--<div id="blog-text-part">-->
+                        <!--<p id="blog-text-title">The Benefits of a Pre-Christmas Clean</p>-->
+                        <!--<span id="icons-box"><i class="fas fa-calendar-alt blog-post"></i><a id="blog-date">6 February 2017</a></span><span><i class="far fa-comment blog-post"></i><a id="blog-comment">6 Comments</a></span>-->
+                        <!--<p id="blog-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat, arcu sed ornare facilisis, enim ipsum varius libero, eget fermentum nisl dolor ac erat. Mauris suscipit massa lacus, ut euismod tellus tincidunt at. Nunc lacus metus, ultrices eget ipsum eget, egestas aliquet nisi. Proin iaculis nunc non ligula facilisis ultricies. Nam eu venenatis nibh. Proin finibus a dui sed facilisis.…</p>-->
+                        <!--<p id="read-more-button">Read More</p>-->
+                    <!--</div>-->
+                 <!--</div>-->
+             <!--</div>-->
+          <!--</div>&lt;!&ndash; right &ndash;&gt;-->
+            {% endfor %}
+        </div>
+      </div>
+   </section><!--             blog section            -->
+
+
+
+{% endblock %}

@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Arman academy</title>
+    <link rel="icon" href="{% static 'img/logo-small.png' %}" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel='stylesheet prefetch' href="{% static 'css/materialize.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}?v=1.1" />
+	</head>
+<body>
+
+   <section id="menu-bar" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+        <nav class="navbar">
+            <span class="open-slide">
+              <a href="#" onclick="openSlideMenu()" id="side-menu-button">
+                <i class="fa fa-bars side-menu-bar"></i>
+              </a>
+            </span>
+            <span><img src="{% static 'img/logo.png' %}" id="main-logo"></span>
+            <ul class="navbar-nav">
+              <li><a href="{% url 'home' %}" class="active-class">Home</a></li>
+              <li><a href="{% url 'features' %}" class="webmenu-class">Features</a></li>
+              <li><a href="{% url 'about' %}" class="webmenu-class">About Us </a></li>
+              <li><a href="{% url 'services' %}" class="webmenu-class">Services</a></li>
+              <li><a href="{% url 'blog' %}" class="webmenu-class">Blog</a></li>
+              <li><a href="{% url 'contact' %}" class="webmenu-class">Contact</a></li>
+              <li><a href="#" class="webmenu-class"><i class="fas fa-phone-volume"></i>0 (800) 123-456</a></li>
+            </ul>
+        </nav>
+
+        <div id="side-menu" class="side-nav">
+          <a href="#" class="btn-close" onclick="closeSlideMenu()" id="close-buttion-top">&times;</a>
+          <a href="#" class="mobile-class-active">Home</a>
+          <a href="#" class="mobile-class">Features</a>
+          <a href="#" class="mobile-class">About Us</a>
+          <a href="#" class="mobile-class">Services</a>
+          <a href="#" class="mobile-class">Blog</a>
+          <a href="#" class="mobile-class">Contact</a>
+          <a href="#" class="mobile-class"><i class="fas fa-phone-volume"></i>0 (800) 123-456</a>
+        </div>
+    </section><!--             Menu section            -->
+
+    {% block content %}
+    {% endblock %}
+
+    <section id="footer-section" class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".5s">
+      <div class="container" id="services-width">
+           <div class="row">
+              <div class="col-sm-3" id="footer-box-part">
+                 <p id="footer-row-title">ABOUT US</p>
+                 <p id="footer-row-des">At vero eos et accusamus et iusto stagnismos ducimus os quidtiiss praetium ptatu mole deeniti .</p>
+                 <div id="footer-text-box">
+                   <i class="fa fa-map"></i>
+                   <span>10th Floor,Washington Square Park, NY, United States.</span>
+                 </div>
+                  <div id="footer-text-box">
+                   <i class="fa fa-envelope"></i>
+                   <span>Support@domain.com</span>
+                 </div>
+                  <div id="footer-text-box">
+                   <i class="fa fa-phone"></i>
+                   <span>(004)+ 124 45 78 678</span>
+                 </div>
+              </div>
+              <div class="col-sm-3" id="footer-box-part">
+                 <p id="footer-row-title" class="link-title">LINKS</p>
+                 <ul id="footer-list">
+                    <li><i class="fa fa-chevron-right"></i><span>Home</span></li>
+                    <li><i class="fa fa-chevron-right"></i><span>Features</span></li>
+                    <li><i class="fa fa-chevron-right"></i><span>About Us </span></li>
+                    <li><i class="fa fa-chevron-right"></i><span>Services</span></li>
+                    <li><i class="fa fa-chevron-right"></i><span>Blog</span></li>
+                    <li><i class="fa fa-chevron-right"></i><span>Contact</span></li>
+                 </ul>
+              </div>
+              <div class="col-sm-3" id="footer-box-part">
+                 <p id="footer-row-title">Social Media</p>
+                 <ul id="footer-social-list">
+                    <li><a><i class="fab fa-behance"></i></a></li>
+                    <li><a><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a><i class="fab fa-twitter"></i></a></li>
+                    <li><a><i class="fab fa-dribbble"></i></a></li>
+                 </ul>
+              </div>
+              <div class="col-sm-3" id="footer-box-part">
+                 <p id="footer-row-title">NEWSLETTER</p>
+                 <p id="footer-row-des">Subscribe Our Newsletter get the Important News. The Amazing Offers & Inside Scoops:</p>
+                 <input type="" name="" placeholder="Email Address" id="footer-input"><a id="footer-button"><i class="fas fa-envelope"></i></a>
+              </div>
+           </div>
+      </div>
+     </section>
+
+     <section id="compnay-name" class="wow fadeIn" data-wow-duration=".5s" data-wow-delay=".5s">
+         <p>© Copyright - 2018  Arman - Designed by Md Arman</p>
+    </section>
+
+
+</body>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"/></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/></script>
+   <script src="{% static 'js/materialize.min.js' %}"/></script>
+   <script type="text/javascript" src="{% static 'js/main.js' %}"/></script>
+   <script type="text/javascript" src="{% static 'js/typed.js' %}"/></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"/></script>
+   <script>
+    function openSlideMenu(){
+      document.getElementById('side-menu').style.width = '250px';
+
+    }
+
+    function closeSlideMenu(){
+      document.getElementById('side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+
+  </script>
+</html>

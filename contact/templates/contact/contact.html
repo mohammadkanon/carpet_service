@@ -1,0 +1,98 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<section id="wallpaper-top-section" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+      <div class="slider" id="div-full-width">
+          <ul class="slides" id="ul-full-width">
+              {% for object in slider %}
+            <li>
+              <img src="{{ object.slider_img.url }}"> <!-- random image -->
+              <div class="caption center-align">
+                <p id="slider-top-text">{{ object.slider_caption }}</p>
+                <p id="slider-top-midel">
+                    {{ object.slider_description }}
+                <br>
+                    {{ object.slider_description2 }}
+                </p>
+                <p id="slider-top-button">{{ object.slider_button }}</p>
+              </div>
+            </li>
+              {% endfor %}
+          </ul>
+      </div>
+    </section><!--             slider section            -->
+
+    <section id="second-wall" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+      <img src="{% static 'img/wall-2.png' %}">
+    </section><!--             second wall section            -->
+
+    <section id="conatct-map-section">
+      <div class="container" id="welcome-section-width">
+         <div class="row">
+            <div class="col-sm-12">
+               <di class="col-sm-6" id="wall-img-box">
+                   <div style="width: 100%"><iframe id="google-map" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street%2C%20Dublin%2C%20Ireland+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Google Maps iframe generator</a></iframe></div><br />
+               </di>
+               <div class="col-sm-6" >
+                   <p id="welcome-title" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">Find Us</p>
+                   <p id="welcome-sub" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">Contacts</p>
+                   <div id="contact-div" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+                     <p id="contact-div-name">Address:</p>
+                     <p id="contact-div-des">8500 Lorem Street,</p>
+                     <p id="contact-div-des">Chicago, IL, 55030Address:</p>
+                   </div>
+                   <div id="contact-div" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+                     <p id="contact-div-name">Phone:</p>
+                     <p id="contact-div-des">1 800 1234 5678</p>
+                   </div>
+                   <div id="contact-div" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+                     <p id="contact-div-name">Email:</p>
+                     <p id="contact-div-des">info@yoursite.com</p>
+                   </div>
+               </div>
+            </div>
+         </div>
+      </div>
+    </section><!--             map section            -->
+
+    <section id="third-wall" class="wow fadeIn" data-wow-duration="1.1s" data-wow-delay=".5s">
+      <img src="{% static 'img/wall-3.png' %}">
+    </section><!--             third wall section            -->
+
+    <section id="services-section">
+      <div class="container" id="services-width">
+         <div class="row">
+           <div id="services-text">
+               <p id="services-title" class="wow fadeIn img-responsive" data-wow-duration="1.1s" data-wow-delay=".5s">Send Us a Message</p>
+               <p id="services-des" class="wow fadeIn img-responsive" data-wow-duration="1.1s" data-wow-delay=".5s">Get in Touch</p>
+           </div>
+            <div class="col-sm-12 wow fadeIn img-responsive" data-wow-duration="1.1s" data-wow-delay=".5s">
+            <form method="post">
+            {% csrf_token %}
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-8">
+                 <div class="col-sm-6" id="input-name-box">
+                    {% render_field form.name class="form-control" placeholder=form.name.label %}
+                 </div>
+                 <div class="col-sm-6" id="input-name-box">
+                    {% render_field form.email class="form-control" placeholder=form.email.label %}
+                 </div>
+                 <div class="col-sm-12" id="input-name-message">
+                     {% render_field form.comment class="form-control" rows="4" cols="50" placeholder=form.comment.label %}
+                    <div id="send-message-div">
+                        <button type="submit" id="single-comment-button">Send Message</button>
+                    </div>
+                 </div>
+              </div>
+              <div class="col-sm-2">
+              </div>
+            </form>
+            </div>
+         </div>
+      </div>
+    </section><!--             conatct section            -->
+
+{% endblock %}
